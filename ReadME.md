@@ -10,6 +10,6 @@ I pushed this code, that other programmers can use this code for their own proje
 Maybe someone will do more with it...?! As well the code doesn't really works I wanna show you how hard I worked
 the last weeks. You can find the JavaDocs in this projects too.
 
-I will work in the next days a lot on this projects, but I must do a lot else.
+I will work in the future a lot on this projects, but I must do a lot else.
 
 Happy coding ^^
