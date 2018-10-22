@@ -1,0 +1,4 @@
+name: RocketAPI
+version: 1.0
+author: bote100
+main: net.bote.rocketapi.RocketAPI

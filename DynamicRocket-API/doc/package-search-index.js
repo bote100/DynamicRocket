@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"net.bote.rocketapi"},{"l":"net.bote.rocketapi.bridge"},{"l":"net.bote.rocketapi.bridge.interfaces"},{"l":"net.bote.rocketapi.bridge.server"},{"l":"net.bote.rocketapi.console"},{"l":"net.bote.rocketapi.events"},{"l":"net.bote.rocketapi.lib"},{"l":"net.bote.rocketapi.utility"}]

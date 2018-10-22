@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="rocketapi" default="all">
+  
+  
+  <property file="rocketapi.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.10" value="${jdk.home.10}/bin"/>
+  <path id="jdk.classpath.10">
+    <fileset dir="${jdk.home.10}">
+      <include name="../jdk-10.0.2!/java.activation"/>
+      <include name="../jdk-10.0.2!/java.base"/>
+      <include name="../jdk-10.0.2!/java.compiler"/>
+      <include name="../jdk-10.0.2!/java.corba"/>
+      <include name="../jdk-10.0.2!/java.datatransfer"/>
+      <include name="../jdk-10.0.2!/java.desktop"/>
+      <include name="../jdk-10.0.2!/java.instrument"/>
+      <include name="../jdk-10.0.2!/java.jnlp"/>
+      <include name="../jdk-10.0.2!/java.logging"/>
+      <include name="../jdk-10.0.2!/java.management"/>
+      <include name="../jdk-10.0.2!/java.management.rmi"/>
+      <include name="../jdk-10.0.2!/java.naming"/>
+      <include name="../jdk-10.0.2!/java.prefs"/>
+      <include name="../jdk-10.0.2!/java.rmi"/>
+      <include name="../jdk-10.0.2!/java.scripting"/>
+      <include name="../jdk-10.0.2!/java.se"/>
+      <include name="../jdk-10.0.2!/java.se.ee"/>
+      <include name="../jdk-10.0.2!/java.security.jgss"/>
+      <include name="../jdk-10.0.2!/java.security.sasl"/>
+      <include name="../jdk-10.0.2!/java.smartcardio"/>
+      <include name="../jdk-10.0.2!/java.sql"/>
+      <include name="../jdk-10.0.2!/java.sql.rowset"/>
+      <include name="../jdk-10.0.2!/java.transaction"/>
+      <include name="../jdk-10.0.2!/java.xml"/>
+      <include name="../jdk-10.0.2!/java.xml.bind"/>
+      <include name="../jdk-10.0.2!/java.xml.crypto"/>
+      <include name="../jdk-10.0.2!/java.xml.ws"/>
+      <include name="../jdk-10.0.2!/java.xml.ws.annotation"/>
+      <include name="../jdk-10.0.2!/javafx.base"/>
+      <include name="../jdk-10.0.2!/javafx.controls"/>
+      <include name="../jdk-10.0.2!/javafx.deploy"/>
+      <include name="../jdk-10.0.2!/javafx.fxml"/>
+      <include name="../jdk-10.0.2!/javafx.graphics"/>
+      <include name="../jdk-10.0.2!/javafx.media"/>
+      <include name="../jdk-10.0.2!/javafx.swing"/>
+      <include name="../jdk-10.0.2!/javafx.web"/>
+      <include name="../jdk-10.0.2!/jdk.accessibility"/>
+      <include name="../jdk-10.0.2!/jdk.aot"/>
+      <include name="../jdk-10.0.2!/jdk.attach"/>
+      <include name="../jdk-10.0.2!/jdk.charsets"/>
+      <include name="../jdk-10.0.2!/jdk.compiler"/>
+      <include name="../jdk-10.0.2!/jdk.crypto.cryptoki"/>
+      <include name="../jdk-10.0.2!/jdk.crypto.ec"/>
+      <include name="../jdk-10.0.2!/jdk.crypto.mscapi"/>
+      <include name="../jdk-10.0.2!/jdk.deploy"/>
+      <include name="../jdk-10.0.2!/jdk.deploy.controlpanel"/>
+      <include name="../jdk-10.0.2!/jdk.dynalink"/>
+      <include name="../jdk-10.0.2!/jdk.editpad"/>
+      <include name="../jdk-10.0.2!/jdk.hotspot.agent"/>
+      <include name="../jdk-10.0.2!/jdk.httpserver"/>
+      <include name="../jdk-10.0.2!/jdk.incubator.httpclient"/>
+      <include name="../jdk-10.0.2!/jdk.internal.ed"/>
+      <include name="../jdk-10.0.2!/jdk.internal.jvmstat"/>
+      <include name="../jdk-10.0.2!/jdk.internal.le"/>
+      <include name="../jdk-10.0.2!/jdk.internal.opt"/>
+      <include name="../jdk-10.0.2!/jdk.internal.vm.ci"/>
+      <include name="../jdk-10.0.2!/jdk.internal.vm.compiler"/>
+      <include name="../jdk-10.0.2!/jdk.internal.vm.compiler.management"/>
+      <include name="../jdk-10.0.2!/jdk.jartool"/>
+      <include name="../jdk-10.0.2!/jdk.javadoc"/>
+      <include name="../jdk-10.0.2!/jdk.javaws"/>
+      <include name="../jdk-10.0.2!/jdk.jcmd"/>
+      <include name="../jdk-10.0.2!/jdk.jconsole"/>
+      <include name="../jdk-10.0.2!/jdk.jdeps"/>
+      <include name="../jdk-10.0.2!/jdk.jdi"/>
+      <include name="../jdk-10.0.2!/jdk.jdwp.agent"/>
+      <include name="../jdk-10.0.2!/jdk.jfr"/>
+      <include name="../jdk-10.0.2!/jdk.jlink"/>
+      <include name="../jdk-10.0.2!/jdk.jshell"/>
+      <include name="../jdk-10.0.2!/jdk.jsobject"/>
+      <include name="../jdk-10.0.2!/jdk.jstatd"/>
+      <include name="../jdk-10.0.2!/jdk.localedata"/>
+      <include name="../jdk-10.0.2!/jdk.management"/>
+      <include name="../jdk-10.0.2!/jdk.management.agent"/>
+      <include name="../jdk-10.0.2!/jdk.management.cmm"/>
+      <include name="../jdk-10.0.2!/jdk.management.jfr"/>
+      <include name="../jdk-10.0.2!/jdk.management.resource"/>
+      <include name="../jdk-10.0.2!/jdk.naming.dns"/>
+      <include name="../jdk-10.0.2!/jdk.naming.rmi"/>
+      <include name="../jdk-10.0.2!/jdk.net"/>
+      <include name="../jdk-10.0.2!/jdk.pack"/>
+      <include name="../jdk-10.0.2!/jdk.packager"/>
+      <include name="../jdk-10.0.2!/jdk.packager.services"/>
+      <include name="../jdk-10.0.2!/jdk.plugin"/>
+      <include name="../jdk-10.0.2!/jdk.plugin.server"/>
+      <include name="../jdk-10.0.2!/jdk.rmic"/>
+      <include name="../jdk-10.0.2!/jdk.scripting.nashorn"/>
+      <include name="../jdk-10.0.2!/jdk.scripting.nashorn.shell"/>
+      <include name="../jdk-10.0.2!/jdk.sctp"/>
+      <include name="../jdk-10.0.2!/jdk.security.auth"/>
+      <include name="../jdk-10.0.2!/jdk.security.jgss"/>
+      <include name="../jdk-10.0.2!/jdk.snmp"/>
+      <include name="../jdk-10.0.2!/jdk.unsupported"/>
+      <include name="../jdk-10.0.2!/jdk.xml.bind"/>
+      <include name="../jdk-10.0.2!/jdk.xml.dom"/>
+      <include name="../jdk-10.0.2!/jdk.xml.ws"/>
+      <include name="../jdk-10.0.2!/jdk.zipfs"/>
+      <include name="../jdk-10.0.2!/oracle.desktop"/>
+      <include name="../jdk-10.0.2!/oracle.net"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.10}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.10}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.10"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.bungeecord.classpath">
+    <pathelement location="F:/Alte SSD/Java Projekte/APIs/BungeeCord.jar"/>
+  </path>
+  
+  <path id="library.maven:_backport-util-concurrent:backport-util-concurrent:3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.code.gson:gson:2.8.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.guava:guava:20.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/guava/guava/20.0/guava-20.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.squareup.okhttp3:okhttp:3.8.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.squareup.okio:okio:1.13.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-io:commons-io:2.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-io/commons-io/2.6/commons-io-2.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-buffer:4.1.25.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-buffer/4.1.25.Final/netty-buffer-4.1.25.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-codec:4.1.25.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-codec/4.1.25.Final/netty-codec-4.1.25.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-common:4.1.25.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-common/4.1.25.Final/netty-common-4.1.25.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-resolver:4.1.25.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-resolver/4.1.25.Final/netty-resolver-4.1.25.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-transport:4.1.25.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-transport/4.1.25.Final/netty-transport-4.1.25.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.socket:engine.io-client:1.0.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/socket/engine.io-client/1.0.0/engine.io-client-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.socket:socket.io-client:1.0.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/socket/socket.io-client/1.0.0/socket.io-client-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-api:1.12-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-api/1.12-SNAPSHOT/bungeecord-api-1.12-20180712.114619-97.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-chat:1.12-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-chat/1.12-SNAPSHOT/bungeecord-chat-1.12-20180712.114550-97.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-config:1.12-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-config/1.12-SNAPSHOT/bungeecord-config-1.12-20180712.114556-97.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-event:1.12-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-event/1.12-SNAPSHOT/bungeecord-event-1.12-20180712.114604-97.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-protocol:1.12-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/bungeecord-protocol-1.12-20180712.114611-97.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.json:json:20180813.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/json/json/20180813/json-20180813.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.projectlombok:lombok:1.18.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/projectlombok/lombok/1.18.2/lombok-1.18.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-jdk14:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.yaml:snakeyaml:1.23.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_rocketapi.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.rocketapi" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.rocketapi" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.rocketapi:jar" value="${basedir}/out/artifacts/RocketAPI_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.RocketAPI.jar" value="${artifacts.temp.dir}/RocketAPI.jar"/>
+  </target>
+  
+  <target name="artifact.rocketapi:jar" depends="init.artifacts, compile.module.rocketapi" description="Build &#39;RocketAPI:jar&#39; artifact">
+    <property name="artifact.temp.output.rocketapi:jar" value="${artifacts.temp.dir}/RocketAPI_jar"/>
+    <mkdir dir="${artifact.temp.output.rocketapi:jar}"/>
+    <jar destfile="${temp.jar.path.RocketAPI.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${rocketapi.output.dir}"/>
+      <zipfileset src="${path.variable.maven_repository}/net/md-5/bungeecord-protocol/1.13-SNAPSHOT/bungeecord-protocol-1.13-20180928.070535-29.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/md-5/bungeecord-event/1.13-SNAPSHOT/bungeecord-event-1.13-20180928.070527-29.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/netty/netty-transport/4.1.30.Final/netty-transport-4.1.30.Final.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/netty/netty-codec/4.1.30.Final/netty-codec-4.1.30.Final.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/json/json/20180813/json-20180813.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/projectlombok/lombok/1.18.2/lombok-1.18.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-io/commons-io/2.6/commons-io-2.6.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/socket/socket.io-client/1.0.0/socket.io-client-1.0.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/md-5/bungeecord-config/1.13-SNAPSHOT/bungeecord-config-1.13-20180928.070521-29.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/netty/netty-common/4.1.30.Final/netty-common-4.1.30.Final.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/md-5/bungeecord-api/1.13-SNAPSHOT/bungeecord-api-1.13-20180928.070545-28.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/md-5/bungeecord-chat/1.13-SNAPSHOT/bungeecord-chat-1.13-20180928.070515-29.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/guava/guava/20.0/guava-20.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/netty/netty-resolver/4.1.30.Final/netty-resolver-4.1.30.Final.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/socket/engine.io-client/1.0.0/engine.io-client-1.0.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/netty/netty-buffer/4.1.30.Final/netty-buffer-4.1.30.Final.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.RocketAPI.jar}" tofile="${artifact.temp.output.rocketapi:jar}/RocketAPI.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.rocketapi:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.rocketapi:jar}"/>
+    <copy todir="${artifact.output.rocketapi:jar}">
+      <fileset dir="${artifact.temp.output.rocketapi:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

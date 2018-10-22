@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_rocketapi" default="compile.module.rocketapi">
+  <dirname property="module.rocketapi.basedir" file="${ant.file.module_rocketapi}"/>
+  
+  <property name="module.jdk.home.rocketapi" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.rocketapi" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.rocketapi" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.rocketapi" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="rocketapi.output.dir" value="${module.rocketapi.basedir}/target/classes"/>
+  <property name="rocketapi.testoutput.dir" value="${module.rocketapi.basedir}/target/test-classes"/>
+  
+  <path id="rocketapi.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="rocketapi.module.production.classpath">
+    <path refid="${module.jdk.classpath.rocketapi}"/>
+    <path refid="library.maven:_net.md-5:bungeecord-api:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-config:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-event:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-protocol:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.25.final.classpath"/>
+    <path refid="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:20.0.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20180813.classpath"/>
+    <path refid="library.maven:_io.socket:socket.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_io.socket:engine.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_backport-util-concurrent:backport-util-concurrent:3.1.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-jdk14:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.bungeecord.classpath"/>
+  </path>
+  
+  <path id="rocketapi.runtime.production.module.classpath">
+    <pathelement location="${rocketapi.output.dir}"/>
+    <path refid="library.maven:_net.md-5:bungeecord-api:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-config:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-event:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-protocol:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.25.final.classpath"/>
+    <path refid="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:20.0.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20180813.classpath"/>
+    <path refid="library.maven:_io.socket:socket.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_io.socket:engine.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_backport-util-concurrent:backport-util-concurrent:3.1.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-jdk14:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.bungeecord.classpath"/>
+  </path>
+  
+  <path id="rocketapi.module.classpath">
+    <path refid="${module.jdk.classpath.rocketapi}"/>
+    <pathelement location="${rocketapi.output.dir}"/>
+    <path refid="library.maven:_net.md-5:bungeecord-api:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-config:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-event:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-protocol:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.25.final.classpath"/>
+    <path refid="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:20.0.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20180813.classpath"/>
+    <path refid="library.maven:_io.socket:socket.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_io.socket:engine.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_backport-util-concurrent:backport-util-concurrent:3.1.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-jdk14:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.bungeecord.classpath"/>
+  </path>
+  
+  <path id="rocketapi.runtime.module.classpath">
+    <pathelement location="${rocketapi.testoutput.dir}"/>
+    <pathelement location="${rocketapi.output.dir}"/>
+    <path refid="library.maven:_net.md-5:bungeecord-api:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-config:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-event:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-protocol:1.12-snapshot.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.25.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.25.final.classpath"/>
+    <path refid="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:20.0.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20180813.classpath"/>
+    <path refid="library.maven:_io.socket:socket.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_io.socket:engine.io-client:1.0.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.8.1.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.13.0.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_backport-util-concurrent:backport-util-concurrent:3.1.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-jdk14:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.bungeecord.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.rocketapi">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.rocketapi">
+    <patternset refid="excluded.from.module.rocketapi"/>
+  </patternset>
+  
+  <path id="rocketapi.module.sourcepath">
+    <dirset dir="${module.rocketapi.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="rocketapi.module.test.sourcepath">
+    <dirset dir="${module.rocketapi.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.rocketapi" depends="compile.module.rocketapi.production,compile.module.rocketapi.tests" description="Compile module RocketAPI"/>
+  
+  <target name="compile.module.rocketapi.production" depends="register.custom.compilers" description="Compile module RocketAPI; production classes">
+    <mkdir dir="${rocketapi.output.dir}"/>
+    <javac2 destdir="${rocketapi.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.rocketapi}/javac">
+      <compilerarg line="${compiler.args.rocketapi}"/>
+      <bootclasspath refid="rocketapi.module.bootclasspath"/>
+      <classpath refid="rocketapi.module.production.classpath"/>
+      <src refid="rocketapi.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.rocketapi"/>
+    </javac2>
+    
+    <copy todir="${rocketapi.output.dir}">
+      <fileset dir="${module.rocketapi.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.rocketapi.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.rocketapi.tests" depends="register.custom.compilers,compile.module.rocketapi.production" description="compile module RocketAPI; test classes" unless="skip.tests">
+    <mkdir dir="${rocketapi.testoutput.dir}"/>
+    <javac2 destdir="${rocketapi.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.rocketapi}/javac">
+      <compilerarg line="${compiler.args.rocketapi}"/>
+      <bootclasspath refid="rocketapi.module.bootclasspath"/>
+      <classpath refid="rocketapi.module.classpath"/>
+      <src refid="rocketapi.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.rocketapi"/>
+    </javac2>
+    
+    <copy todir="${rocketapi.testoutput.dir}">
+      <fileset dir="${module.rocketapi.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.rocketapi" description="cleanup module">
+    <delete dir="${rocketapi.output.dir}"/>
+    <delete dir="${rocketapi.testoutput.dir}"/>
+  </target>
+</project>
